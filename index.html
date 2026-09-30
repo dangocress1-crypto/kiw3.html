@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nongkiw Shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            main: '#5B9BD5',      /* ฟ้าหลัก */
+                            light: '#E6F2FF',     /* ฟ้าพาสเทลอ่อน */
+                            accent: '#87CEFA',    /* ฟ้าพาสเทลสดใส */
+                            text: '#1E3A8A',      /* ฟ้าเข้มสำหรับข้อความหลัก */
+                            subtext: '#4B6BFB',   /* ฟ้าสำหรับข้อความรอง */
+                            bg: '#F0F8FF'         /* พื้นหลังพาสเทล */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'app': '0 8px 30px rgba(91, 155, 213, 0.12)',
+                        'nav': '0 -4px 20px rgba(91, 155, 213, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #EBF5FF;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #B9E0FF 0%, #E6F2FF 100%);
+        }
+        .banner-bg {
+            background-image: linear-gradient(rgba(30, 58, 138, 0.4), rgba(30, 58, 138, 0.6)), url('about.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+
+    <!-- Mobile Container -->
+    <div class="w-full max-w-[430px] min-h-screen bg-brand-bg relative pb-24 shadow-2xl overflow-hidden">
+
+        <!-- ==================== PAGE 0: HOME ==================== -->
+        <div id="page-home" class="page active">
+            <div class="banner-bg pt-12 px-6 pb-20 relative rounded-b-[40px] text-white">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="text-white font-outfit text-2xl font-bold tracking-wide drop-shadow-md">NONGKIW SHOP</div>
+                    <a href="https://www.facebook.com/profile.php?id=61594785118393" target="_blank" class="w-9 h-9 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/40">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+                <div class="text-center my-4 z-10 relative">
+                    <h1 class="font-outfit text-sm font-medium text-blue-100">Welcome to Nongkiw Store</h1>
+                    <div class="text-2xl font-bold mt-1 text-white flex justify-center items-center gap-2 drop-shadow-sm">
+                        ยินดีให้บริการลูกค้าทุกคนครับ <i class="fa-solid fa-gamepad text-blue-200"></i>
+                    </div>
+                    <p class="text-xs text-blue-100 mt-2">งานไว งานเร็ว มีสตรีม แชร์จอให้ดูได้</p>
+                </div>
+            </div>
+
+            <div class="px-5 -mt-10 relative z-10 space-y-4">
+                <!-- Highlight Card -->
+                <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-5 text-center">
+                    <span class="bg-brand-light text-brand-text text-[10px] font-bold px-3 py-1 rounded-full border border-blue-200">RECOMMENDED <i class="fa-solid fa-bolt text-brand-main ml-1"></i></span>
+                    <h2 class="text-base font-bold text-brand-text mt-3">บริการยอดฮิตจากทางร้าน</h2>
+                    <p class="text-[11px] text-gray-500 mt-1">สอบถามรายละเอียดและปรึกษาราคาก่อนได้ครับ</p>
+                    <div class="grid grid-cols-3 gap-2 mt-4">
+                        <button onclick="switchTab('page-services', -1)" class="p-3 bg-brand-light/50 border border-brand-light rounded-xl flex flex-col items-center gap-1 hover:bg-brand-light transition-colors">
+                            <i class="fa-solid fa-trophy text-brand-main text-lg"></i>
+                            <span class="text-[10px] font-bold text-brand-text">ดันแรงค์ 4v4</span>
+                        </button>
+                        <button onclick="switchTab('page-services', -1)" class="p-3 bg-brand-light/50 border border-brand-light rounded-xl flex flex-col items-center gap-1 hover:bg-brand-light transition-colors">
+                            <i class="fa-solid fa-gem text-brand-main text-lg"></i>
+                            <span class="text-[10px] font-bold text-brand-text">เติมไนโตร</span>
+                        </button>
+                        <button onclick="switchTab('page-services', -1)" class="p-3 bg-brand-light/50 border border-brand-light rounded-xl flex flex-col items-center gap-1 hover:bg-brand-light transition-colors">
+                            <i class="fa-solid fa-[#5B9BD5] fa-wand-magic-sparkles text-brand-main text-lg"></i>
+                            <span class="text-[10px] font-bold text-brand-text">กดกรอบเอฟเฟค</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fast Menu Links -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-brand-light space-y-2">
+                    <button onclick="switchTab('page-portfolio', -1)" class="w-full bg-brand-light/40 hover:bg-brand-light p-3 rounded-xl flex items-center justify-between text-brand-text font-bold text-xs transition-colors border border-brand-light">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-images text-brand-main"></i> ดูตัวอย่างผลงานทั้งหมด</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brand-main"></i>
+                    </button>
+                    <button onclick="switchTab('page-howto', -1)" class="w-full bg-brand-light/40 hover:bg-brand-light p-3 rounded-xl flex items-center justify-between text-brand-text font-bold text-xs transition-colors border border-brand-light">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-list-check text-brand-main"></i> ขั้นตอนการสั่งซื้อ & โอนเงิน</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brand-main"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGE 1: SERVICES ==================== -->
+        <div id="page-services" class="page">
+            <div class="gradient-bg pt-10 px-6 pb-20 relative rounded-b-[40px]">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-brand-main shadow-sm cursor-pointer border border-brand-light" onclick="switchTab('page-home', 0)">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </div>
+                    <div class="text-brand-text font-outfit text-xl font-bold tracking-wide">NONGKIW STORE</div>
+                    <div class="w-8"></div>
+                </div>
+                <div class="text-center mb-2 z-10 relative">
+                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">All Services</h1>
+                    <div class="text-2xl font-bold mt-1 text-brand-text flex justify-center items-center gap-2">
+                        บริการทั้งหมด <i class="fa-solid fa-layer-group text-brand-main"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-5 -mt-10 relative z-10 space-y-3 pb-6">
+                <!-- Item 1 -->
+                <div class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-lg"><i class="fa-solid fa-trophy"></i></div>
+                        <div>
+                            <div class="text-sm font-bold text-brand-text">รับดันแรงค์ 4v4</div>
+                            <div class="text-[10px] text-gray-500">งานไว งานเร็ว มีสตรีม/แชร์จอให้ดู</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-brand-main font-bold text-xs">ทักคุยราคา</div>
+                        <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-brand-main text-white px-2.5 py-1 rounded-md mt-1 font-bold shadow-sm">สั่งซื้อ</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-lg"><i class="fa-solid fa-gem"></i></div>
+                        <div>
+                            <div class="text-sm font-bold text-brand-text">เติมไนโตร</div>
+                            <div class="text-[10px] text-gray-500">บริการเติมไนโตร รวดเร็ว ปลอดภัย</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-brand-main font-bold text-xs">ทักคุยราคา</div>
+                        <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-brand-main text-white px-2.5 py-1 rounded-md mt-1 font-bold shadow-sm">สั่งซื้อ</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-main text-white text-[8px] font-bold px-2 py-0.5 rounded-bl-lg">HOT</div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div>
+                            <div class="text-sm font-bold text-brand-text">กดกรอบเอฟเฟค</div>
+                            <div class="text-[10px] text-gray-500">เพิ่มเอฟเฟคสวยๆ ตามต้องการ</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-brand-main font-bold text-xs">ทักคุยราคา</div>
+                        <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-brand-main text-white px-2.5 py-1 rounded-md mt-1 font-bold shadow-sm">สั่งซื้อ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGE 2: PORTFOLIO (ตัวอย่างผลงาน) ==================== -->
+        <div id="page-portfolio" class="page">
+            <div class="gradient-bg pt-10 px-6 pb-20 relative rounded-b-[40px]">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-brand-main shadow-sm cursor-pointer border border-brand-light" onclick="switchTab('page-home', 0)">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </div>
+                    <div class="text-brand-text font-outfit text-xl font-bold tracking-wide">NONGKIW STORE</div>
+                    <div class="w-8"></div>
+                </div>
+                <div class="text-center mb-2 z-10 relative">
+                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">Portfolio</h1>
+                    <div class="text-2xl font-bold mt-1 text-brand-text flex justify-center items-center gap-2">
+                        ตัวอย่างผลงาน <i class="fa-solid fa-images text-brand-main"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-5 -mt-10 relative z-10 space-y-4 pb-8">
+                <div class="bg-white rounded-2xl p-4 shadow-app border border-brand-light">
+                    <p class="text-center text-xs text-brand-subtext font-medium mb-4">ตัวอย่างผลงานดันแรงค์และบริการต่างๆ ของร้าน</p>
+                    
+                    <!-- 2 Column Image Grid -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 1</span>
+                        </div>
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 2</span>
+                        </div>
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 3</span>
+                        </div>
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 4</span>
+                        </div>
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 5</span>
+                        </div>
+                        <div class="aspect-square bg-brand-light/60 rounded-xl border border-brand-light flex flex-col items-center justify-center text-brand-main p-2">
+                            <i class="fa-regular fa-image text-3xl mb-1"></i>
+                            <span class="text-[10px] font-bold text-center">ตัวอย่างผลงาน 6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGE 3: HOW TO ORDER & PAYMENT ==================== -->
+        <div id="page-howto" class="page">
+            <div class="gradient-bg pt-10 px-6 pb-20 relative rounded-b-[40px]">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-brand-main shadow-sm cursor-pointer border border-brand-light" onclick="switchTab('page-home', 0)">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </div>
+                    <div class="text-brand-text font-outfit text-xl font-bold tracking-wide">NONGKIW STORE</div>
+                    <div class="w-8"></div>
+                </div>
+                <div class="text-center mb-2 z-10 relative">
+                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">How to Order</h1>
+                    <div class="text-2xl font-bold mt-1 text-brand-text flex justify-center items-center gap-2">
+                        ขั้นตอนการสั่งซื้อ <i class="fa-solid fa-cart-shopping text-brand-main"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-5 -mt-10 relative z-10 space-y-4 pb-8">
+                <!-- Order Steps Card -->
+                <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-5">
+                    <h3 class="text-base font-bold text-brand-text mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-brand-main"></i> ขั้นตอนการใช้บริการ
+                    </h3>
+                    <ul class="text-xs text-brand-text space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-brand-light text-brand-main font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">1</span>
+                            <span><strong>ทักมาแจ้งรายละเอียด:</strong> แจ้งบริการที่ต้องการกับทางร้าน</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-brand-light text-brand-main font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">2</span>
+                            <span><strong>ประเมินราคา:</strong> ร้านจะแจ้งราคาสรุปตามรายละเอียดที่แจ้ง</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-brand-light text-brand-main font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">3</span>
+                            <span><strong>ชำระเงิน:</strong> โอนเงินชำระค่าบริการล่วงหน้า (ไม่มีคืนเงิน)</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-brand-light text-brand-main font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">4</span>
+                            <span><strong>เริ่มงาน:</strong> ระยะเวลาการรองาน ขึ้นอยู่กับคิวในช่วงนั้นๆ</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-[11px] text-red-600 font-medium leading-relaxed">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> <strong>ข้อควรระวัง:</strong> โอนก่อนเริ่มงานเท่านั้น / ไม่มีคืนเงิน / มีบัญชีเดียวเท่านั้น กรุณาเช็คชื่อและเลขบัญชีก่อนโอนเงินทุกครั้ง
+                    </div>
+                </div>
+
+                <!-- Payment Info Card -->
+                <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-5">
+                    <h3 class="text-base font-bold text-brand-text mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-wallet text-brand-main"></i> ช่องทางการโอนเงิน
+                    </h3>
+
+                    <div class="mb-4 rounded-xl overflow-hidden border border-brand-light shadow-sm">
+                        <img src="payment.png" alt="Payment Channels" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200?text=Payment+Info+(payment.png)';">
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-3 bg-brand-light/40 border border-brand-light rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-green-600 text-white font-bold flex items-center justify-center text-xs">K-Bank</div>
+                                <div>
+                                    <div class="text-xs font-bold text-brand-text">กสิกรไทย</div>
+                                    <div class="text-sm font-bold text-brand-main tracking-wider">206-1-32878-8</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-brand-light/40 border border-brand-light rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-orange-500 text-white font-bold flex items-center justify-center text-xs">Wallet</div>
+                                <div>
+                                    <div class="text-xs font-bold text-brand-text">TrueMoney Wallet</div>
+                                    <div class="text-sm font-bold text-brand-main tracking-wider">0834214076</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGE 6: CONTACT ==================== -->
+        <div id="page-contact" class="page">
+            <div class="gradient-bg pt-10 px-6 pb-20 relative rounded-b-[40px]">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-brand-main shadow-sm cursor-pointer border border-brand-light" onclick="switchTab('page-home', 0)">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </div>
+                    <div class="text-brand-text font-outfit text-xl font-bold tracking-wide">NONGKIW STORE</div>
+                    <div class="w-8"></div>
+                </div>
+                <div class="text-center mb-2 z-10 relative">
+                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">Contact Us</h1>
+                    <div class="text-2xl font-bold mt-1 text-brand-text flex justify-center items-center gap-2">
+                        ช่องทางติดต่อ <i class="fa-regular fa-comments text-brand-main"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-5 -mt-10 relative z-10 pb-8">
+                <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-8 flex justify-center gap-8">
+                    <a href="https://www.facebook.com/profile.php?id=61594785118393" target="_blank" class="flex flex-col items-center gap-2 group">
+                        <div class="w-16 h-16 rounded-full border-2 border-brand-light bg-brand-light/50 text-brand-main flex items-center justify-center text-3xl group-hover:bg-brand-main group-hover:text-white group-hover:border-brand-main transition-all shadow-sm">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-brand-text group-hover:text-brand-main transition-colors">Facebook</span>
+                    </a>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-xs text-brand-subtext">ทักสอบถามรายละเอียด/จองคิวงาน ได้ตลอดเวลานะครับ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== BOTTOM NAVIGATION ==================== -->
+        <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-brand-light px-6 py-3 z-50 shadow-nav max-w-[430px] mx-auto rounded-t-3xl">
+            <div class="flex justify-between items-end pb-1">
+                <div class="flex flex-col items-center gap-1 cursor-pointer w-1/4 text-brand-main" onclick="switchTab('page-home', 0)" id="nav-item-0">
+                    <i class="fa-solid fa-house text-lg mb-0.5"></i>
+                    <span class="text-[9px] font-semibold">หน้าแรก</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer w-1/4 text-gray-400 hover:text-brand-main transition-colors" onclick="switchTab('page-portfolio', 1)" id="nav-item-1">
+                    <i class="fa-solid fa-images text-lg mb-0.5"></i>
+                    <span class="text-[9px] font-medium">ตัวอย่างงาน</span>
+                </div>
+                <div class="relative w-1/4 flex justify-center" onclick="switchTab('page-services', -1)">
+                    <div class="absolute -top-9 w-12 h-12 bg-gradient-to-tr from-brand-main to-blue-300 rounded-full flex items-center justify-center text-white text-xl shadow-lg shadow-blue-300/50 border-4 border-white cursor-pointer transform hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <span class="text-[9px] font-bold text-brand-main mt-5">บริการ</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer w-1/4 text-gray-400 hover:text-brand-main transition-colors" onclick="switchTab('page-howto', 2)" id="nav-item-2">
+                    <i class="fa-solid fa-receipt text-lg mb-0.5"></i>
+                    <span class="text-[9px] font-medium">สั่งซื้อ/โอน</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer w-1/4 text-gray-400 hover:text-brand-main transition-colors" onclick="switchTab('page-contact', 3)" id="nav-item-3">
+                    <i class="fa-regular fa-comment-dots text-lg mb-0.5"></i>
+                    <span class="text-[9px] font-medium">ติดต่อ</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script for Tab Switching -->
+    <script>
+        function switchTab(pageId, navIndex) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+            window.scrollTo(0, 0);
+
+            if (navIndex >= 0) {
+                for (let i = 0; i <= 3; i++) {
+                    const item = document.getElementById(`nav-item-${i}`);
+                    if (item) {
+                        const icon = item.querySelector('i');
+                        const span = item.querySelector('span');
+                        if (i === navIndex) {
+                            item.classList.remove('text-gray-400');
+                            item.classList.add('text-brand-main');
+                            if(span) span.className = 'text-[9px] font-semibold';
+                        } else {
+                            item.classList.remove('text-brand-main');
+                            item.classList.add('text-gray-400');
+                            if(span) span.className = 'text-[9px] font-medium';
+                        }
+                    }
+                }
+            } else {
+                for (let i = 0; i <= 3; i++) {
+                    const item = document.getElementById(`nav-item-${i}`);
+                    if (item) {
+                        item.classList.remove('text-brand-main');
+                        item.classList.add('text-gray-400');
+                        const span = item.querySelector('span');
+                        if(span) span.className = 'text-[9px] font-medium';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
